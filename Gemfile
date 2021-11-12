@@ -45,7 +45,6 @@ group :test do
   gem 'simplecov'
   gem 'factory_bot_rails'
   gem 'faker'
-  gem 'database_cleaner'
   gem 'webmock'
   gem 'vcr'
 end
