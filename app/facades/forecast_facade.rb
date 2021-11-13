@@ -3,11 +3,14 @@ class ForecastFacade
     response = MapService.geocode(city_state)
     parsed = JSON.parse(response.body, symbolize_names:true)
     parsed_locations = parsed[:results][0][:locations][0]
-
-    {
-      latitude: parsed_locations[:latLng][:lat],
-      longitude: parsed_locations[:latLng][:lng]
-    }
+    if parsed_locations.present?
+      {
+        latitude: parsed_locations[:latLng][:lat],
+        longitude: parsed_locations[:latLng][:lng]
+      }
+    else
+      nil
+    end
   end
 
   def self.city_weather(coords)
@@ -19,7 +22,7 @@ class ForecastFacade
       daily_data: parsed[:daily],
       hourly_data: parsed[:hourly]
     }
-    
+
     Forecast.new(attributes)
   end
 end
