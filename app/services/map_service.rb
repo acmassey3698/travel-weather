@@ -1,0 +1,12 @@
+class MapService
+  def self.conn
+    Faraday.new('http://www.mapquestapi.com')
+  end
+  
+  def self.geocode(city_state)
+    conn.get('/geocoding/v1/address') do |request|
+      request.params['key'] = ENV['MAPQUEST_API_KEY']
+      request.params['location'] = city_state
+    end
+  end
+end
