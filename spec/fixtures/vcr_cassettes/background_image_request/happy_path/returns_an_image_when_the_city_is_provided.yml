@@ -1,0 +1,89 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.unsplash.com/search/photos?client_id=KTV8HIxJe49YvLllTbIXue_mKh-rpYyE0p9GWR1TTC4&page=1&per_page=1&query=Denver,COskyline
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1055'
+      Server:
+      - Cowboy
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Request-Method:
+      - "*"
+      Access-Control-Allow-Headers:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Link,X-Total,X-Per-Page,X-RateLimit-Limit,X-RateLimit-Remaining
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      X-Unsplash-Version:
+      - v1
+      Warning:
+      - The tags property in this endpoint is deprecated. https://changelog.unsplash.com/deprecations/2021/07/12/tags-search-deprecation.html
+      Link:
+      - <https://api.unsplash.com/search/photos?client_id=KTV8HIxJe49YvLllTbIXue_mKh-rpYyE0p9GWR1TTC4&page=3046&per_page=1&query=Denver%2CCOskyline>;
+        rel="last", <https://api.unsplash.com/search/photos?client_id=KTV8HIxJe49YvLllTbIXue_mKh-rpYyE0p9GWR1TTC4&page=2&per_page=1&query=Denver%2CCOskyline>;
+        rel="next"
+      X-Total:
+      - '3046'
+      X-Per-Page:
+      - '1'
+      Etag:
+      - W/"da9c8ecebe6505727e7454281b22c088"
+      X-Ratelimit-Limit:
+      - '50'
+      X-Ratelimit-Remaining:
+      - '47'
+      X-Request-Id:
+      - 80c5fb5a-d1ca-4726-8ce2-f2b8e03a3957
+      X-Runtime:
+      - '0.098822'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Via:
+      - 1.1 vegur, 1.1 varnish, 1.1 varnish
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Sun, 14 Nov 2021 16:16:57 GMT
+      Age:
+      - '0'
+      X-Served-By:
+      - cache-dca12928-DCA, cache-atl18456-ATL
+      X-Cache:
+      - MISS, MISS
+      X-Cache-Hits:
+      - 0, 0
+      X-Timer:
+      - S1636906617.479993,VS0,VE131
+      Vary:
+      - Accept-Encoding, Origin,Authorization,client-geo-region,Accept
+    body:
+      encoding: ASCII-8BIT
+      string: '{"total":3046,"total_pages":3046,"results":[{"id":"lkLTeBY2SZE","created_at":"2017-11-21T12:43:55-05:00","updated_at":"2021-11-13T16:03:15-05:00","promoted_at":null,"width":4000,"height":6000,"color":"#f3f3f3","blur_hash":"LuKK~G~qWVIU-;tRM|RPRiWAWAoL","description":"Blue
+        Bear Looking In","alt_description":"blue bear leaning on glass building","urls":{"raw":"https://images.unsplash.com/photo-1511286148006-ec48824e3282?ixid=MnwyNzU1NzV8MHwxfHNlYXJjaHwxfHxEZW52ZXIlMkNDT3NreWxpbmV8ZW58MHx8fHwxNjM2OTA2NjE3\u0026ixlib=rb-1.2.1","full":"https://images.unsplash.com/photo-1511286148006-ec48824e3282?crop=entropy\u0026cs=srgb\u0026fm=jpg\u0026ixid=MnwyNzU1NzV8MHwxfHNlYXJjaHwxfHxEZW52ZXIlMkNDT3NreWxpbmV8ZW58MHx8fHwxNjM2OTA2NjE3\u0026ixlib=rb-1.2.1\u0026q=85","regular":"https://images.unsplash.com/photo-1511286148006-ec48824e3282?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyNzU1NzV8MHwxfHNlYXJjaHwxfHxEZW52ZXIlMkNDT3NreWxpbmV8ZW58MHx8fHwxNjM2OTA2NjE3\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=1080","small":"https://images.unsplash.com/photo-1511286148006-ec48824e3282?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyNzU1NzV8MHwxfHNlYXJjaHwxfHxEZW52ZXIlMkNDT3NreWxpbmV8ZW58MHx8fHwxNjM2OTA2NjE3\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=400","thumb":"https://images.unsplash.com/photo-1511286148006-ec48824e3282?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyNzU1NzV8MHwxfHNlYXJjaHwxfHxEZW52ZXIlMkNDT3NreWxpbmV8ZW58MHx8fHwxNjM2OTA2NjE3\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=200"},"links":{"self":"https://api.unsplash.com/photos/lkLTeBY2SZE","html":"https://unsplash.com/photos/lkLTeBY2SZE","download":"https://unsplash.com/photos/lkLTeBY2SZE/download?ixid=MnwyNzU1NzV8MHwxfHNlYXJjaHwxfHxEZW52ZXIlMkNDT3NreWxpbmV8ZW58MHx8fHwxNjM2OTA2NjE3","download_location":"https://api.unsplash.com/photos/lkLTeBY2SZE/download?ixid=MnwyNzU1NzV8MHwxfHNlYXJjaHwxfHxEZW52ZXIlMkNDT3NreWxpbmV8ZW58MHx8fHwxNjM2OTA2NjE3"},"categories":[],"likes":771,"liked_by_user":false,"current_user_collections":[],"sponsorship":null,"topic_submissions":{},"user":{"id":"7i6Pgr7iunM","updated_at":"2021-11-13T20:25:53-05:00","username":"mirandafayj","name":"Miranda
+        Joondeph","first_name":"Miranda","last_name":"Joondeph","twitter_username":null,"portfolio_url":"http://www.mirandafayj.com","bio":"Graphic
+        Designer | Photographer | Hand Letterer","location":"Denver, CO","links":{"self":"https://api.unsplash.com/users/mirandafayj","html":"https://unsplash.com/@mirandafayj","photos":"https://api.unsplash.com/users/mirandafayj/photos","likes":"https://api.unsplash.com/users/mirandafayj/likes","portfolio":"https://api.unsplash.com/users/mirandafayj/portfolio","following":"https://api.unsplash.com/users/mirandafayj/following","followers":"https://api.unsplash.com/users/mirandafayj/followers"},"profile_image":{"small":"https://images.unsplash.com/profile-1511368442822-cb58663a88dd?ixlib=rb-1.2.1\u0026q=80\u0026fm=jpg\u0026crop=faces\u0026cs=tinysrgb\u0026fit=crop\u0026h=32\u0026w=32","medium":"https://images.unsplash.com/profile-1511368442822-cb58663a88dd?ixlib=rb-1.2.1\u0026q=80\u0026fm=jpg\u0026crop=faces\u0026cs=tinysrgb\u0026fit=crop\u0026h=64\u0026w=64","large":"https://images.unsplash.com/profile-1511368442822-cb58663a88dd?ixlib=rb-1.2.1\u0026q=80\u0026fm=jpg\u0026crop=faces\u0026cs=tinysrgb\u0026fit=crop\u0026h=128\u0026w=128"},"instagram_username":"mirandafayj","total_collections":0,"total_likes":1,"total_photos":1,"accepted_tos":false,"for_hire":false,"social":{"instagram_username":"mirandafayj","portfolio_url":"http://www.mirandafayj.com","twitter_username":null,"paypal_email":null}},"tags":[{"type":"search","title":"denver"},{"type":"search","title":"united
+        states"},{"type":"search","title":"building"}]}]}'
+  recorded_at: Sun, 14 Nov 2021 16:16:57 GMT
+recorded_with: VCR 6.0.0
