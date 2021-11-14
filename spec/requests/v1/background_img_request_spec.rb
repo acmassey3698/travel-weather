@@ -43,7 +43,7 @@ RSpec.describe 'background image request' do
 
       parsed = JSON.parse(response.body, symbolize_names:true)
 
-      expect(parsed[:message]).to eq("No results found")
+      expect(parsed[:message]).to eq("Bad request")
       expect(parsed[:error]).to eq("Query missing required information")
     end
   end
