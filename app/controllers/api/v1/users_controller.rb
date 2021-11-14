@@ -7,7 +7,7 @@ class Api::V1::UsersController < ApplicationController
       new_user.update(api_key: SecureRandom.hex)
       render json: UsersSerializer.user_info(new_user), status: :created
     else
-      bad_request
+      unauthorized
     end
 
   end
