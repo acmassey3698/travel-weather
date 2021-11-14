@@ -9,7 +9,6 @@ class ForecastSerializer
           "current_weather": {
             datetime: forecast.current_weather[:datetime],
             sunrise: forecast.current_weather[:sunrise],
-            sunrise: forecast.current_weather[:sunrise],
             sunset: forecast.current_weather[:sunset],
             temperature: forecast.current_weather[:temperature],
             feels_like: forecast.current_weather[:feels_like],
