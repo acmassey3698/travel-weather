@@ -10,7 +10,15 @@ RSpec.describe 'user registration endpoint' do
       } , as: :json
 
       expect(response).to be_successful
+      expect(response.status).to eq(201)
 
+      response_body = JSON.parse(response.body, symbolize_names:true)
+
+      expect(response_body).to have_key :data
+      expect(response_body[:data][:type]).to eq("users")
+      expect(response_body[:data][:id].to_i).to be_truthy
+      expect(response_body[:data][:attributes][:email]).to eq("email@email.com")
+      expect(response_body[:data][:attributes][:api_key]).to be_a String
     end
   end
 
