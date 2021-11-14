@@ -22,11 +22,29 @@ RSpec.describe 'background image request' do
 
   describe 'sad path' do
     it 'returns an error when there is not result for the photo search', :vcr do
-      
+      get '/api/v1/backgrounds?location=dafgewgqwaggeqwgag'
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(404)
+
+      parsed = JSON.parse(response.body, symbolize_names:true)
+
+      expect(parsed[:message]).to eq("No results found")
+      expect(parsed[:error]).to eq("No results found for location: dafgewgqwaggeqwgag")
     end
   end
 
   describe 'edge case' do
+    it 'returns an error when the location is not provided for a photo search', :vcr do
+      get '/api/v1/backgrounds?location='
 
+      expect(response).to_not be_successful
+      expect(response.status).to eq(400)
+
+      parsed = JSON.parse(response.body, symbolize_names:true)
+
+      expect(parsed[:message]).to eq("No results found")
+      expect(parsed[:error]).to eq("Query missing required information")
+    end
   end
 end

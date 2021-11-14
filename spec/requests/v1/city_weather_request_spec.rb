@@ -53,8 +53,8 @@ RSpec.describe 'city weather request' do
       expect(response.status).to eq(404)
       response_body = JSON.parse(response.body, symbolize_names:true)
 
-      expect(response_body[:message]).to eq("No forecast found")
-      expect(response_body[:error]).to eq("No forecast found for location: faefgegfaweg")
+      expect(response_body[:message]).to eq("No results found")
+      expect(response_body[:error]).to eq("No results found for location: faefgegfaweg")
     end
   end
 
@@ -66,7 +66,7 @@ RSpec.describe 'city weather request' do
       expect(response.status).to eq(400)
       response_body = JSON.parse(response.body, symbolize_names:true)
 
-      expect(response_body[:message]).to eq("No forecast found")
+      expect(response_body[:message]).to eq("No results found")
       expect(response_body[:error]).to eq("Query missing required information")
     end
 
@@ -77,7 +77,7 @@ RSpec.describe 'city weather request' do
       expect(response.status).to eq(400)
       response_body = JSON.parse(response.body, symbolize_names:true)
 
-      expect(response_body[:message]).to eq("No forecast found")
+      expect(response_body[:message]).to eq("No results found")
       expect(response_body[:error]).to eq("Query missing required information")
     end
   end
