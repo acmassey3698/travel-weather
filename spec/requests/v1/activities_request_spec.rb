@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'activity request spec' do
   describe 'happy path' do
     it 'returns activites when a user enters a valid location', :vcr do
-      get '/api/v1/activites?destination=Denver,CO'
+      get '/api/v1/activities?destination=Denver,CO'
 
       expect(response).to be_successful
 
@@ -15,7 +15,7 @@ RSpec.describe 'activity request spec' do
       expect(response_body[:data][:attributes]).to have_key :activities
       expect(response_body[:data][:attributes]).to have_key :destination
       expect(response_body[:data][:attributes]).to have_key :forecast
-    end 
+    end
   end
 
   describe 'sad path' do
