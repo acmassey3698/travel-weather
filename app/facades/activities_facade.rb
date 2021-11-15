@@ -1,18 +1,18 @@
 class ActivitiesFacade
 
   def self.find_activities(forecast)
-    relaxation_activity = BoredService.relaxation_activity
+    activity1 = BoredService.activity
     current_temp = forecast.current_weather[:temperature]
 
     if current_temp >= 60
-      second_activity = BoredService.weather_dependent("recreational")
+      activity2 = BoredService.activity("recreational")
     elsif current_temp >= 50 && current_temp < 60
-      second_activity = BoredService.weather_dependent("busywork")
+      activity2 = BoredService.activity("busywork")
     else
-      second_activity = BoredService.weather_dependent("cooking")
+      activity2 = BoredService.activity("cooking")
     end
 
-    activities = [relaxation_activity, second_activity]
+    activities = [activity1, activity2]
 
     activities.map do |activity|
       attributes = JSON.parse(activity.body, symbolize_names:true)
