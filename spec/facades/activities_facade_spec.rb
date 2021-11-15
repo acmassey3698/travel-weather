@@ -25,5 +25,13 @@ RSpec.describe ActivitiesFacade do
       expect(ActivitiesFacade.find_activities(forecast)[0].type).to eq("relaxation")
       expect(ActivitiesFacade.find_activities(forecast)[1].type).to eq("cooking")
     end
+
+    it 'find_activities (temperature somewhere in the middle)', :vcr do
+      coords = ForecastFacade.geocode_city('Richmond,VA')
+      forecast = ForecastFacade.city_weather(coords)
+
+      expect(ActivitiesFacade.find_activities(forecast)[0].type).to eq('relaxation')
+      expect(ActivitiesFacade.find_activities(forecast)[1].type).to eq('busywork')
+    end
   end
 end
