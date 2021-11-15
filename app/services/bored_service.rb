@@ -3,13 +3,13 @@ class BoredService
     Faraday.new('http://www.boredapi.com')
   end
 
-  def self.relaxation_activity
-    conn.get('/api/activity') do |request|
-      request.params['type'] = "relaxation"
-    end
-  end
+  # def self.relaxation_activity
+  #   conn.get('/api/activity') do |request|
+  #     request.params['type'] = "relaxation"
+  #   end
+  # end
 
-  def self.weather_dependent(activity_type)
+  def self.activity(activity_type = "relaxation")
     conn.get('/api/activity') do |request|
       request.params['type'] = activity_type
     end
