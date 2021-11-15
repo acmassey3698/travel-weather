@@ -31,12 +31,28 @@ RSpec.describe 'activity request spec' do
   end
 
   describe 'sad path' do
+    it 'returns an error when there is no city that matches the destination', :vcr do
+      get '/api/v1/activities?destination=faefgegfaweg'
 
+      expect(response).to_not be_successful
+      expect(response.status).to eq(404)
+      response_body = JSON.parse(response.body, symbolize_names:true)
+
+      expect(response_body[:message]).to eq("No results found")
+      expect(response_body[:error]).to eq("No results found for location: ")
+    end
   end
 
   describe 'edge case' do
+    it 'returns the bad request error when a user does not include the destination param', :vcr do
+      get '/api/v1/activities'
 
+      expect(response).to_not be_successful
+      expect(response.status).to eq(400)
+      response_body = JSON.parse(response.body, symbolize_names:true)
 
+      expect(response_body[:message]).to eq("Bad request")
+      expect(response_body[:error]).to eq("Query missing required information")
+    end
   end
-
 end
