@@ -11,8 +11,8 @@ class Api::V1::ActivitiesController < ApplicationController
     else
       return record_not_found
     end
-    activities = ActivitiesFacade.find_activities(forecast)
 
+    activities = ActivitiesFacade.find_activities(forecast)
     render json: ActivitiesSerializer.destination_activities(params[:destination], forecast, activities)
   end
 end
