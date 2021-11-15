@@ -14,5 +14,4 @@ class BoredService
       request.params['type'] = activity_type
     end
   end
-
 end
