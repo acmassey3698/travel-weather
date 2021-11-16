@@ -1,5 +1,4 @@
 class Api::V1::BackgroundsController < ApplicationController
-
   def index
     if params[:location].present?
       background = BackgroundsFacade.search_image(params[:location])

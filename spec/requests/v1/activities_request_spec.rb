@@ -38,8 +38,9 @@ RSpec.describe 'activity request spec' do
       expect(response.status).to eq(404)
       response_body = JSON.parse(response.body, symbolize_names:true)
 
+      expect(response_body).to_not have_key :data
       expect(response_body[:message]).to eq("No results found")
-      expect(response_body[:error]).to eq("No results found for location: ")
+      expect(response_body[:error]).to eq("No results found for location: faefgegfaweg")
     end
   end
 
@@ -51,6 +52,7 @@ RSpec.describe 'activity request spec' do
       expect(response.status).to eq(400)
       response_body = JSON.parse(response.body, symbolize_names:true)
 
+      expect(response_body).to_not have_key :data
       expect(response_body[:message]).to eq("Bad request")
       expect(response_body[:error]).to eq("Query missing required information")
     end

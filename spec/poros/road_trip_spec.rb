@@ -8,7 +8,7 @@ RSpec.describe RoadTrip do
       expect(result.start_city).to eq('Denver,CO')
       expect(result.end_city).to eq('Houston,TX')
       expect(result.travel_time).to eq("15:38:27")
-      expect(result.weather_at_eta[:temperature]).to eq(68.88)
+      expect(result.weather_at_eta[:temperature]).to eq(68.7)
       expect(result.weather_at_eta[:conditions]).to eq("clear sky")
     end
   end
@@ -24,8 +24,8 @@ RSpec.describe RoadTrip do
     it '#arrival_weather for a very long trip', :vcr do
       result = RoadTripFacade.new_trip('Charlotte,NC', 'Anchorage,AK')
 
-      expect(result.weather_at_eta[:temperature]).to eq(2.19)
-      expect(result.weather_at_eta[:conditions]).to eq('scattered clouds')
+      expect(result.weather_at_eta[:temperature]).to eq(0.05)
+      expect(result.weather_at_eta[:conditions]).to eq('overcast clouds')
     end
   end
 end

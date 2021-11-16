@@ -5,11 +5,11 @@ class Api::V1::UsersController < ApplicationController
     new_user     = User.new(user)
     if new_user.save
       new_user.update(api_key: SecureRandom.hex)
+      session[:user_id] = new_user.id
       render json: UsersSerializer.user_info(new_user), status: :created
     else
       unauthorized
     end
-
   end
 
   private
