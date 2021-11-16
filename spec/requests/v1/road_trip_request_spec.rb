@@ -114,7 +114,7 @@ RSpec.describe 'road trip create request' do
       response_body = JSON.parse(response.body, symbolize_names:true)
 
       expect(response_body[:message]).to eq('No results found')
-      expect(response_body[:error]).to eq("No results found for location: ")
+      expect(response_body[:error]).to eq("No results found for location: 8adh9w")
     end
   end
 
