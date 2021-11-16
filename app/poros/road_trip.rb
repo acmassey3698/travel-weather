@@ -21,18 +21,16 @@ class RoadTrip
   end
 
   def arrival_weather(forecast)
-    hours = travel_time[0..1].to_i - 1
+    hours = travel_time[0..1].to_i
     if hours < 48 && hours != -1
       forecast.hourly_weather[hours]
-    elsif hours == -1
-      forecast.current_weather
     else
       multi_day(hours)
     end
   end
 
   def multi_day(hours)
-    days = (hours/24) - 1
+    days = (hours/24)
     {
       temperature: forecast.daily_weather[days][:max_temp],
       conditions: forecast.daily_weather[days][:conditions],
