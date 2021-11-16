@@ -29,6 +29,7 @@ RSpec.describe 'background image request' do
 
       parsed = JSON.parse(response.body, symbolize_names:true)
 
+      expect(parsed).to_not have_key :data
       expect(parsed[:message]).to eq("No results found")
       expect(parsed[:error]).to eq("No results found for location: dafgewgqwaggeqwgag")
     end
@@ -43,6 +44,7 @@ RSpec.describe 'background image request' do
 
       parsed = JSON.parse(response.body, symbolize_names:true)
 
+      expect(parsed).to_not have_key :data
       expect(parsed[:message]).to eq("Bad request")
       expect(parsed[:error]).to eq("Query missing required information")
     end

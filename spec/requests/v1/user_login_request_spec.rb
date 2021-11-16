@@ -42,6 +42,7 @@ RSpec.describe 'user login' do
 
       response_body = JSON.parse(response.body, symbolize_names:true)
 
+      expect(response_body).to_not have_key :data
       expect(response_body[:message]).to eq("Unauthorized")
       expect(response_body[:error]).to eq("Invalid credentials provided")
     end
@@ -57,6 +58,7 @@ RSpec.describe 'user login' do
 
       response_body = JSON.parse(response.body, symbolize_names:true)
 
+      expect(response_body).to_not have_key :data
       expect(response_body[:message]).to eq("Unauthorized")
       expect(response_body[:error]).to eq("Invalid credentials provided")
     end
@@ -74,6 +76,7 @@ RSpec.describe 'user login' do
 
       response_body = JSON.parse(response.body, symbolize_names:true)
 
+      expect(response_body).to_not have_key :data
       expect(response_body[:message]).to eq("Unauthorized")
       expect(response_body[:error]).to eq("Invalid credentials provided")
     end
