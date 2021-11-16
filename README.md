@@ -320,7 +320,6 @@ rails s
 </details>
 
 ### Contact Info
-### Contact Info 
   
   ![Linked In](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)
 - [Andrew Massey](https://www.linkedin.com/in/andrew-massey-b06662194/)
