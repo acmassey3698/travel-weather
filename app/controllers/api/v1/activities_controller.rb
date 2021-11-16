@@ -1,5 +1,4 @@
 class Api::V1::ActivitiesController < ApplicationController
-
   def index
     if params[:destination].present?
       coords = ForecastFacade.geocode_city(params[:destination])
