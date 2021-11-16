@@ -4,4 +4,8 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, on: :create
 
   has_secure_password
+
+  def self.validate_api_key(key)
+    User.where(api_key: key)
+  end
 end

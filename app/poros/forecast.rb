@@ -18,7 +18,7 @@ class Forecast
     }
 
     @daily_weather =
-    attrs[:daily_data][1..5].map do |day|
+    attrs[:daily_data].map do |day|
       {
         date: Time.at(day[:dt]).utc.strftime("%a %b %e %Y"),
         sunrise: Time.at(day[:sunrise]).utc.strftime("%a %b %e %T %Y"),
@@ -31,7 +31,7 @@ class Forecast
     end
 
     @hourly_weather =
-    attrs[:hourly_data][1..8].map do |hour|
+    attrs[:hourly_data].map do |hour|
       {
         time: Time.at(hour[:dt]).utc.strftime('%T'),
         temperature: hour[:temp],
