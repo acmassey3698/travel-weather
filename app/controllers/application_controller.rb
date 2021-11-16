@@ -4,7 +4,11 @@ class ApplicationController < ActionController::API
   end
 
   def record_not_found
-    render json: ErrorSerializer.not_found(params[:location]), status: 404
+    if params[:location].present?
+      render json: ErrorSerializer.not_found(params[:location]), status: 404
+    else
+      render json: ErrorSerializer.not_found(params[:destination]), status: 404
+    end
   end
 
   def unauthorized
