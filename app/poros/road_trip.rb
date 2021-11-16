@@ -9,6 +9,7 @@ class RoadTrip
     @start_city = attrs[:start_city]
     @end_city = attrs[:end_city]
     @travel_time = attrs[:travel_time]
+    @forecast = attrs[:forecast]
     if attrs[:forecast].present?
       @weather_at_eta = arrival_weather(attrs[:forecast])
     else
@@ -21,7 +22,7 @@ class RoadTrip
 
   def arrival_weather(forecast)
     hours = travel_time[0..1].to_i - 1
-    if hours < 48
+    if hours < 48 && hours != -1
       forecast.hourly_weather[hours]
     elsif hours == -1
       forecast.current_weather
@@ -32,6 +33,9 @@ class RoadTrip
 
   def multi_day(hours)
     days = (hours/24) - 1
-    forecast.daily_weather[days]
+    {
+      temperature: forecast.daily_weather[days][:max_temp],
+      conditions: forecast.daily_weather[days][:conditions],
+    }
   end
 end
