@@ -10,7 +10,39 @@ RSpec.describe ForecastFacade do
     it '#city_weather', :vcr do
       coords = ForecastFacade.geocode_city('Denver,CO')
 
-      expect(ForecastFacade.city_weather(coords)).to be_a Forecast
+      result = ForecastFacade.city_weather(coords)
+      expect(result).to be_a Forecast
+      expect(result.current_weather).to be_a Hash
+      expect(result.current_weather).to be_a Hash
+      expect(result.current_weather).to have_key :datetime
+      expect(result.current_weather).to have_key :sunrise
+      expect(result.current_weather).to have_key :sunset
+      expect(result.current_weather).to have_key :temperature
+      expect(result.current_weather).to have_key :feels_like
+      expect(result.current_weather).to have_key :humidity
+      expect(result.current_weather).to have_key :uvi
+      expect(result.current_weather).to have_key :visibility
+      expect(result.current_weather).to have_key :conditions
+      expect(result.current_weather).to have_key :icon
+
+      expect(result.daily_weather).to be_an Array
+      result.daily_weather.each do |r|
+        expect(r).to have_key :date
+        expect(r).to have_key :sunrise
+        expect(r).to have_key :sunset
+        expect(r).to have_key :max_temp
+        expect(r).to have_key :min_temp
+        expect(r).to have_key :conditions
+        expect(r).to have_key :icon
+      end
+
+      expect(result.hourly_weather).to be_an Array
+      result.hourly_weather.each do |r|
+        expect(r).to have_key :time
+        expect(r).to have_key :temperature
+        expect(r).to have_key :conditions
+        expect(r).to have_key :icon
+      end
     end
   end
 end
