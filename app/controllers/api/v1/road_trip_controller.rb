@@ -1,6 +1,5 @@
 class Api::V1::RoadTripController < ApplicationController
   before_action :check_key
-
   def create
     if params[:origin].present? && params[:destination].present?
       road_trip = RoadTripFacade.new_trip(params[:origin], params[:destination])
