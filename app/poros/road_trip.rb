@@ -2,7 +2,6 @@ class RoadTrip
   attr_reader :start_city,
               :end_city,
               :travel_time,
-              :forecast,
               :weather_at_eta
 
   def initialize(attrs)
