@@ -2,8 +2,17 @@ class Api::V1::RoadTripController < ApplicationController
   before_action :check_key
 
   def create
-    road_trip = RoadTripFacade.new_trip(params[:origin], params[:destination])
-    render json: RoadTripSerializer.one_trip(road_trip)
+    if params[:origin].present? && params[:destination].present?
+      road_trip = RoadTripFacade.new_trip(params[:origin], params[:destination])
+    else
+      return bad_request
+    end
+
+    if road_trip.present?
+      render json: RoadTripSerializer.one_trip(road_trip)
+    else
+      return record_not_found
+    end
   end
 
   private
