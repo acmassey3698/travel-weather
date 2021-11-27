@@ -18,6 +18,7 @@ gem 'puma', '~> 5.0'
 gem 'figaro'
 gem 'faraday'
 gem 'bcrypt'
+gem 'travis'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
